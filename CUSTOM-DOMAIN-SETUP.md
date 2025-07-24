@@ -22,7 +22,8 @@ cd ~/n8n
 ```
 
 ## 4. Create docker-compose.yml
-Paste this into `~/n8n/docker-compose.yml` (update credentials as needed):
+
+Paste this into `~/n8n/docker-compose.yml`:
 ```yaml
 version: '3.8'
 
@@ -32,21 +33,27 @@ services:
     restart: always
     ports:
       - "5678:5678"
-    environment:
-      - N8N_BASIC_AUTH_ACTIVE=true
-      - N8N_BASIC_AUTH_USER=admin
-      - N8N_BASIC_AUTH_PASSWORD=admin
-      - N8N_HOST=your.domain.com
-      - N8N_PORT=5678
-      - N8N_PROTOCOL=http
-      - N8N_EDITOR_BASE_URL=https://your.domain.com/
-      - WEBHOOK_URL=https://your.domain.com/
-      - N8N_SECURE_COOKIE=true
+    env_file:
+      - .env
     volumes:
       - n8n_data:/home/node/.n8n
 
 volumes:
   n8n_data:
+```
+
+Create a `.env` file in the same directory with your environment variables, for example:
+```env
+N8N_BASIC_AUTH_ACTIVE=true
+N8N_BASIC_AUTH_USER=admin
+N8N_BASIC_AUTH_PASSWORD=admin
+N8N_HOST=your.domain.com
+N8N_PORT=5678
+N8N_PROTOCOL=http
+N8N_EDITOR_BASE_URL=https://your.domain.com/
+WEBHOOK_URL=https://your.domain.com/
+N8N_SECURE_COOKIE=true
+N8N_RUNNERS_ENABLED=true
 ```
 
 ## 5. Start n8n
@@ -71,7 +78,7 @@ Paste this config (replace domain if needed):
 ```
 server {
     listen 80;
-    server_name yourdomain.com;
+    server_name your.domain.com;
 
     location / {
         proxy_pass http://localhost:5678/;

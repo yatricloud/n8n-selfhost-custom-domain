@@ -42,22 +42,27 @@ services:
     restart: always
     ports:
       - "5678:5678"
-    environment:
-      - N8N_BASIC_AUTH_ACTIVE=true
-      - N8N_BASIC_AUTH_USER=admin
-      - N8N_BASIC_AUTH_PASSWORD=yourStrongPassword
-      - N8N_HOST=localhost
-      - N8N_PORT=5678
-      - N8N_PROTOCOL=http
-      - N8N_EDITOR_BASE_URL=http://localhost:5678/
-      - WEBHOOK_URL=http://localhost:5678/
-      - N8N_SECURE_COOKIE=false
-      - N8N_RUNNERS_ENABLED=true
+    env_file:
+      - .env
     volumes:
       - n8n_data:/home/node/.n8n
 
 volumes:
   n8n_data:
+```
+
+Create a `.env` file in the same directory with your environment variables, for example:
+```env
+N8N_BASIC_AUTH_ACTIVE=true
+N8N_BASIC_AUTH_USER=admin
+N8N_BASIC_AUTH_PASSWORD=yourStrongPassword
+N8N_HOST=localhost
+N8N_PORT=5678
+N8N_PROTOCOL=http
+N8N_EDITOR_BASE_URL=http://localhost:5678/
+WEBHOOK_URL=http://localhost:5678/
+N8N_SECURE_COOKIE=false
+N8N_RUNNERS_ENABLED=true
 ```
 
 ## 5. Start n8n
