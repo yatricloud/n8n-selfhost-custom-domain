@@ -71,7 +71,7 @@ Paste this config (replace domain if needed):
 ```
 server {
     listen 80;
-    server_name your.domain.com;
+    server_name yourdomain.com;
 
     location / {
         proxy_pass http://localhost:5678/;
