@@ -1,12 +1,4 @@
-<div align="center">
-  <img src="https://n8n.io/images/n8n-logo.png" alt="n8n logo" width="120" />
-  
-  <h1>n8n Yatri Community Edition</h1>
-  <p><b>Install and run n8n locally with this easy guide, brought to you by <a href="https://n8n.partnerlinks.io/7l53qdxhp11s" target="_blank">n8n Yatri</a>!</b></p>
-  <p>
-    <a href="https://n8n.partnerlinks.io/7l53qdxhp11s" target="_blank" style="font-size:1.2em;font-weight:bold;">🚀 Unlock the full power of n8n Cloud: instant setup, advanced features, and priority support. Join with one click and help grow the Yatri community!</a>
-  </p>
-</div>
+
 
 # Local Installation: n8n on Your Machine (HTTP)
 
